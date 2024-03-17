@@ -1,0 +1,56 @@
+body {
+    margin: 0%;
+}
+
+.AUTS p {
+    font-size: 1.5em;
+}
+
+.AUTS a {
+    text-align: center;
+    text-decoration: none;
+    display: block;
+    color: hsl(0, 85%, 25%);
+    padding: 15px;
+}
+
+.AUTS ul {
+    list-style-type: none;
+    display: flex;
+    padding: 0px;
+    margin: 0px;
+    justify-content: space-around;
+}
+
+/*
+    Navigation bar styles
+*/
+.navBar ul {
+    list-style-type: none;
+    overflow: hidden;
+    display: flex;
+    justify-content: space-around;
+    background-color: hsl(0, 0%, 35%);
+    padding: 0px;
+    margin: 0px;
+}
+
+.navBar li {
+    float: left;
+}
+
+.navBar a {
+    text-align: center;
+    text-decoration: none;
+    display: block;
+    color: hsl(0, 0%, 84%);
+    padding: 15px;
+}
+
+.navBar a:hover{
+    background-color: rgb(53, 53, 53);
+}
+
+.navBar a:visited {
+    color: aquamarine;
+}

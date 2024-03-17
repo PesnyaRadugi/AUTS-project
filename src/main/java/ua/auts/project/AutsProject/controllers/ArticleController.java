@@ -1,6 +1,7 @@
 package ua.auts.project.AutsProject.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.lang.NonNull;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -33,13 +34,13 @@ public class ArticleController {
     }
 
     @PostMapping("/add")
-    public String articlesAddArticle(@ModelAttribute("article") Article article) {
+    public String articlesAddArticle(@NonNull @ModelAttribute("article") Article article) {
         articleRepository.save(article);
         return "redirect:/articles";
     }
 
     @GetMapping("/{id}")
-    public String articlesShowDetails(@PathVariable(value = "id") Long id, Model model) {
+    public String articlesShowDetails(@NonNull @PathVariable(value = "id") Long id, Model model) {
         Article article = articleRepository.findById(id).orElse(null);
 
         if (article == null) {

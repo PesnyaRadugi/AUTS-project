@@ -12,7 +12,10 @@
     <div class="add-article-container">
         <h1 class="add-article-form-welcome">Create article</h1><hr>
         <form class="add-article-form" action="/articles/add" method="post" th:object="${article}">
+            <h5>Article title</h5>
             <input class="add-article-form-title" type="text" th:field="*{title}" placeholder="New RimWorld DLC is out !!!"><hr>
+            
+            <h5>Article content</h5>
             <textarea class="add-article-form-content" th:field="*{content}" placeholder="All content stolen from mods ! RIP wall light"></textarea><hr>
             <button class="add-article-form-submit" type="submit">Shitpost your article</button><br>    
         </form>

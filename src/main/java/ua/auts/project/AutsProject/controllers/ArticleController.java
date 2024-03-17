@@ -4,6 +4,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import ua.auts.project.AutsProject.models.Article;
@@ -21,5 +24,29 @@ public class ArticleController {
         Iterable<Article> articles = articleRepository.findAll();
         model.addAttribute("articles", articles);
         return "articles-home";
+    }
+
+    @GetMapping("/add")
+    public String articlesAdd(Model model) {
+        model.addAttribute("article", new Article());
+        return "articles-add";
+    }
+
+    @PostMapping("/add")
+    public String articlesAddArticle(@ModelAttribute("article") Article article) {
+        articleRepository.save(article);
+        return "redirect:/articles";
+    }
+
+    @GetMapping("/{id}")
+    public String articlesShowDetails(@PathVariable(value = "id") Long id, Model model) {
+        Article article = articleRepository.findById(id).orElse(null);
+
+        if (article == null) {
+            return "redirect:/articles";
+        }
+
+        model.addAttribute("article", article);
+        return "articles-details";
     }
 }

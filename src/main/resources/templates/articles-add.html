@@ -1,0 +1,23 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-4.dtd">
+<head>
+    <title>AUTS homepage</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <link th:href="@{/styles/headerStyles.css}" rel="stylesheet">
+    <link th:href="@{/styles/footerStyles.css}" rel="stylesheet">
+</head>
+<body>
+    <header th:insert="~{blocks/header :: header}"></header>
+    
+    <div class="add-article-container">
+        <h1 class="add-article-form-welcome">Create article</h1><hr>
+        <form class="add-article-form" action="/articles/add" method="post" th:object="${article}">
+            <input class="add-article-form-title" type="text" th:field="*{title}" placeholder="New RimWorld DLC is out !!!"><hr>
+            <textarea class="add-article-form-content" th:field="*{content}" placeholder="All content stolen from mods ! RIP wall light"></textarea><hr>
+            <button class="add-article-form-submit" type="submit">Shitpost your article</button><br>    
+        </form>
+    </div>
+
+    <footer th:insert="~{blocks/footer :: footer}"></footer>
+</body>
+</html>

@@ -7,17 +7,20 @@
     <link th:href="@{/styles/footerStyles.css}" rel="stylesheet">
 </head>
 <body>
-    <header th:insert="blocks/header :: header"></header>
+    <header th:insert="~{blocks/header :: header}"></header>
     
     <div class="container mt-5">
         <h1>Auts articles</h1>
         <div th:each="element : ${articles}" class="alert alert-info mt-2">
             <h3 th:text="${element.title}"></h3>
             <p th:text="${element.content}"></p>
+            <a th:href="@{/articles/{id}(id=${element.id})}" class="btn btn-primary" role="button">Read more</a>
             <hr>
         </div>
     </div>
 
-    <footer th:insert="blocks/footer :: footer"></footer>
+    <h2>End of article block</h2>
+
+    <footer th:insert="~{blocks/footer :: footer}"></footer>
 </body>
 </html>

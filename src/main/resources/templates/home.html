@@ -7,13 +7,13 @@
     <link th:href="@{/styles/footerStyles.css}" rel="stylesheet">
 </head>
 <body>
-    <header th:insert="blocks/header :: header"></header>
+    <header th:insert="~{blocks/header :: header}"></header>
 
-    <img th:src="@{/images/louis-lu-sister3.jpg}" 
+    <img src="/images/louis-lu-sister3.jpg" 
         alt="boobies"
         style="display: block; margin-left: auto; margin-right: auto; width: 50%;"
     >
     
-    <footer th:insert="blocks/footer :: footer"></footer>
+    <footer th:insert="~{blocks/footer :: footer}"></footer>
 </body>
 </html>

@@ -36,6 +36,7 @@ public class AppController {
         return "login_form";
     }
 
+    @SuppressWarnings("null")
     @PostMapping("process_reg")
     public String processSignUp(User user) {
         userRepository.save(user);

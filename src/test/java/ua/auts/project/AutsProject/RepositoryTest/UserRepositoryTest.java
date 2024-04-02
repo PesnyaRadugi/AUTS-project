@@ -39,4 +39,13 @@ public class UserRepositoryTest {
         }
 
     }
+
+    @Test
+    public void testFindUserByUsername() {
+        String username = "amogusSussy";
+
+        User user = userRepository.findByUsername(username);
+        Assertions.assertThat(user).isNotNull();
+        System.out.println("Found User");
+    }
 }
